@@ -30,6 +30,14 @@ def get_version_git():
     print(r.headers)
     ver = r.headers['location'][-6:]
     return ver
+def update_version(version):
+    try:
+        f = open("/Users/hoon/Documents/version", 'r')
+    except:
+        f = open("C:/version",'r')
+    f.write(version)
+    f.close()
+
 print(dir)
 ver_file = get_version_file()
 ver_git  = get_version_git()
@@ -49,6 +57,7 @@ else:
     parsed_file = urlparse(url)
     file_name = os.path.basename(parsed_file.path)
     file = requests.get(url)    
+    update_version(ver_git)
     open(dir, 'wb').write(file.content)
 print('Finish')
 commend = "start "+ dir
