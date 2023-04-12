@@ -24,7 +24,7 @@ def get_version_file ():
     for line in f:
         line = line.strip()
     f.close()
-    print(line)
+    return line
 def get_version_git():
     r = requests.head("https://github.com/kimmoney/gongzone_beamin_releases/releases/latest")
     print(r.headers)
@@ -32,9 +32,9 @@ def get_version_git():
     return ver
 def update_version(version):
     try:
-        f = open("/Users/hoon/Documents/version", 'r')
+        f = open("/Users/hoon/Documents/version", 'w')
     except:
-        f = open("C:/version",'r')
+        f = open("C:/version",'w')
     f.write(version)
     f.close()
 
