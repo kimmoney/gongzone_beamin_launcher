@@ -5,7 +5,7 @@ from urllib.parse import urlparse
 print("########################################################")
 print("####New Update Launcher####")
 print("########################################################")
-dir = '%s\\gongzone.exe'% os.path.expanduser("~")
+dir = '%s\\beamin_launcher.exe'% os.path.expanduser("~")
 # def get_version_file ():
 #     try :
 #         pe = pefile.PE(dir)
