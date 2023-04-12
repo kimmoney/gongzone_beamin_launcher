@@ -5,7 +5,9 @@ from urllib.parse import urlparse
 print("########################################################")
 print("####New Update Launcher####")
 print("########################################################")
-dir = '%s\\beamin_launcher.exe'% os.path.expanduser("~")
+dir = '%s/beamin_launcher.exe'% os.path.expanduser("~")
+file_dir = os.path.expanduser("~")
+
 # def get_version_file ():
 #     try :
 #         pe = pefile.PE(dir)
@@ -17,24 +19,18 @@ dir = '%s\\beamin_launcher.exe'% os.path.expanduser("~")
 #     except:
 #         return 'v1.0.0 '
 def get_version_file ():
-    try:
-        f = open("/Users/hoon/Documents/version", 'r')
-    except:
-        f = open("C:/version",'r')
+    f = open("%s/version" % file_dir,'r')
     for line in f:
         line = line.strip()
     f.close()
     return line
 def get_version_git():
     r = requests.head("https://github.com/kimmoney/gongzone_beamin_releases/releases/latest")
-    print(r.headers)
     ver = r.headers['location'][-6:]
     return ver
+
 def update_version(version):
-    try:
-        f = open("/Users/hoon/Documents/version", 'w')
-    except:
-        f = open("C:/version",'w')
+    f = open("%s/version" % file_dir,'w')
     f.write(version)
     f.close()
 
