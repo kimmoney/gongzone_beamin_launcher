@@ -43,7 +43,7 @@ else:
     try:os.remove(dir)
     except:pass
     print("Installing new version")
-    url = "https://github.com/kimmoney/gongzone_beamin_releases/releases/download/{}/beamin_launcher.exe".format(ver_git)
+    url = "https://github.com/kimmoney/gongzone_beamin_releases/releases/download/{}/beamin_gongzone.exe".format(ver_git)
     file = requests.get(url,stream = True)
     print(url)
     parsed_file = urlparse(url)
